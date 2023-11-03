@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hobby-page>
+    <section name="header">
+		<title>Timeless Passion</title>
+		<text>Timekeepers' Sanctuary - Unveiling the Mystique of Horology, Dive Deep into the World of Watches.</text>
+		<image src="static/images/HeroWatch.png">Vincerro Green Watch</image>
+	</section>
+	<section name="about">
+		<title>About Timekeepers' Sanctuary</title>
+		<text>Welcome to Timekeepers' Sanctuary - where moments stand still, and the artistry of watches takes center stage. Whether you're a seasoned collector or just beginning to appreciate the intricacies of horology, this space was crafted with you in mind.</text>
+	</section>
+	<section name="divisions">
+		<division>
+			<title>History & Evolution</title>
+			<text>From ancient sundials to today's smartwatches, journey through time and learn about the incredible evolution of timekeeping devices.</text>
+			<image src="static/images/HeroWatch.png">Vincerro Green Watch</image>
+		</division>
+		<division>
+			<title>Craftsmanship & Design</title>
+			<text>Delve into the details. Discover how the world's most iconic watches are designed and the craftsmanship that brings them to life.</text>
+			<image src="static/images/HeroWatch.png">Vincerro Green Watch</image>
+		</division>
+		<division>
+			<title>Collector's Corner</title>
+			<text>Tips, tricks, and advice for budding collectors. Learn how to start, curate, and maintain your watch collection.</text>
+			<image src="static/images/HeroWatch.png">Vincerro Green Watch</image>
+		</division>
+	</section>
+</hobby-page>
