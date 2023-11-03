@@ -1,0 +1,50 @@
+@keyframes heroIn {
+   0% {
+      opacity: 0;
+      transform: translateY(50px);
+   }
+   100% {
+      opacity: 93%;
+      transform: translateY(0);
+   }
+}
+@keyframes heroBeforeRing {
+   0% {
+      transform: translate(-50%, -50%) scale(0);
+   }
+   100% {
+      transform: translate(-50%, -50%) scale(1);
+   }
+}
+@keyframes heroAfterRing {
+   0% {
+      transform: translate(-50%, -50%) scale(0);
+   }
+   100% {
+      transform: translate(-50%, -50%) scale(1);
+   }
+}
+@keyframes heroTitle {
+   from {
+      transform: translateY(160px);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
+@keyframes heroP {
+   from {
+      transform: translateY(-160px);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
+@keyframes fadeIn {
+   from {
+      opacity: 0%;
+   }
+   to {
+      opacity: 100%;
+   }
+}
