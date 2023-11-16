@@ -273,3 +273,9 @@
     line-height: 21px;
     font-weight: 500;
 }
+
+.section-divisions .button-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
