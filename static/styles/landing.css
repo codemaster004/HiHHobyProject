@@ -36,6 +36,7 @@
 .header-content .header-title > div {
     width: 55%;
     overflow-y: hidden;
+    padding: 20px;
 }
 
 .header-content .header-title h1 {
@@ -162,11 +163,18 @@
     background-color: #8e8e8e13;
     border-radius: 15px;
     z-index: -1;
-    transform: translate(-55%, -55%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: .4s;
 }
 
-.section-about .image-wrapper::before {
+.section-about .image-wrapper.visible-full-animation::after {
+    transform: translate(-55%, -55%);
+    opacity: 1;
+}
+.section-about .image-wrapper.visible-full-animation::before {
     transform: translate(-60%, -60%);
+    opacity: 1;
 }
 
 .section-about .image-box img {
@@ -217,9 +225,10 @@
 
     background-color: #fefefe;
     border-radius: 7px;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05);
 
-    transition: 0.3s;
+    transition: 0.5s;
+    opacity: 0;
 }
 
 .card .card-image {
@@ -240,21 +249,29 @@
     padding: 20px;
 }
 
+.section-divisions .card-box.visible-in-animation .card {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
 .section-divisions .card:nth-of-type(1) {
     background-color: #f2f3f8;
+    transform: translateX(-30%);
 }
 
 .section-divisions .card:nth-of-type(2) {
     background-color: #f2f8f6;
+    transform: translateY(30%);
 }
 
 .section-divisions .card:nth-of-type(3) {
     background-color: #f8f7f2;
+    transform: translateX(30%);
 }
 
-.section-divisions .card:hover {
+.section-divisions .card-box.visible-in-animation .card:hover {
     transform: translateY(-25px);
-    box-shadow: 0px 20px 20px -5px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 20px -5px rgba(0, 0, 0, 0.08);
 }
 .section-divisions .card:hover .button-corner {
     background-color: #7f7f7f;

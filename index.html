@@ -7,7 +7,7 @@
 	<!-- My styles -->
 	<link rel="stylesheet" href="base.css"/>
 	<link rel="stylesheet" href="static/styles/landing.css"/>
-	<!-- <link rel="stylesheet" href="static/styles/animations.css" /> -->
+	<link rel="stylesheet" href="static/styles/animations.css"/>
 
 	<!-- Google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -114,5 +114,24 @@
 		</div>
 	</section>
 </main>
+
+<script>
+    let observer = new IntersectionObserver((entries, _) => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio >= 1) {
+                setTimeout(() => {
+                    entry.target.classList.add("visible-full-animation");
+                }, 200)
+            } else if (entry.intersectionRatio > 0.25) {
+                entry.target.classList.add("visible-in-animation");
+            }
+        });
+    }, {threshold: [0.25, 1]});
+
+
+    document.querySelectorAll('.section-about .image-wrapper').forEach(el => observer.observe(el));
+    document.querySelectorAll('.section-divisions .card-box').forEach(el => observer.observe(el));
+
+</script>
 </body>
 </html>

@@ -38,16 +38,32 @@ header {
     border: 0;
     font-size: 14px;
     letter-spacing: 0.4px;
+    transition: .3s;
+
+    outline: 1px solid #757575;
+    outline-offset: -1px;
 
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
+.button-main:hover {
+    cursor: pointer;
+}
+
 .button-main-outline {
     background-color: #fff;
     border: 1px solid #757575;
     color: #757575;
+
+    outline: 1px solid #757575;
+    outline-offset: -1px;
+}
+
+.button-main:hover {
+    outline-offset: 15px;
+    outline-color: transparent;
 }
 
 .button-corner {
