@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="gallery.css">
+	<title>Photo Gallery</title>
+</head>
+<body>
+<main>
+	<div class="gallery-title">
+		<h1>Photo Gallery</h1>
+	</div>
+	<div class="gallery-introduction">
+		<a>Look through the newest watches that have come up tha last few weeks.</a>
+	</div>
+	<div class="gallery"></div>
+	<div id="popup">
+		<div class="photo">
+			<img src="../static/images/gallery_3.jpg" alt="">
+		</div>
+	</div>
+</main>
+
+<script>
+    function zoomIn(id) {
+        let popup = document.querySelector('#popup');
+        let targetPhoto = popup.querySelector('img');
+
+        console.log(id);
+        targetPhoto.setAttribute('src', `../static/images/gallery_${id - 1 + 2}.jpg`);
+        console.log(targetPhoto);
+
+        popup.style.display = 'flex';
+        setTimeout(() => {
+            popup.classList.add('active')
+        }, 200);
+    }
+
+    function zoomOut() {
+        let popup = document.querySelector('#popup');
+
+        popup.classList.remove('active')
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 200);
+    }
+
+    setTimeout(() => {
+        let popup = document.querySelector('#popup')
+        popup.addEventListener('click', zoomOut)
+        let gallery = document.querySelector(".gallery");
+        for (let i = 0; i < 12; i++) {
+            gallery.innerHTML += `<div class="photo" id="image-${i}" onclick="zoomIn('${i}')"><img src="../static/images/gallery_${i + 1}.jpg" alt="watch"/></div>`
+        }
+    }, 10);
+</script>
+</body>
+</html>
