@@ -4,13 +4,11 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-	<!-- My styles -->
 	<link rel="stylesheet" href="base.css"/>
 	<link rel="stylesheet" href="static/styles/landing.css"/>
-	<!--	<link rel="stylesheet" href="static/styles/animations.css"/>-->
+	<link rel="stylesheet" href="static/styles/animations.css"/>
 	<link rel="stylesheet" href="static/styles/nav.css">
 
-	<!-- Google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 	<link
@@ -22,17 +20,34 @@
 </head>
 <body>
 <nav>
-	<ul>
-		<li><a href="#">Home</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Discover</a></li>
-		<li><p>Other</p>
-			<ol>
-				<li></li>
-				<li></li>
-			</ol>
-		</li>
-	</ul>
+	<table>
+		<tr>
+			<td><a href="#">Home</a></td>
+			<td><a href="#section-about">About</a></td>
+			<td class="close-icon" id="close">
+				<svg width="25" height="25" xmlns="http://www.w3.org/2000/svg">
+					<line class="svg-line" x1="0" y1="0" x2="25" y2="25" stroke="black" stroke-width="2" stroke-linecap="round"/>
+					<line class="svg-line" x1="25" y1="0" x2="0" y2="25" stroke="black" stroke-width="2" stroke-linecap="round"/>
+				</svg>
+			</td>
+			<td><a href="#section-division">Discover</a></td>
+			<td class="more-options">Other</td>
+		</tr>
+		<tr class="moreMenu">
+			<td></td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td><a href="templates/gallery.html">Gallery</a></td>
+		</tr>
+		<tr class="moreMenu">
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td>Contact</td>
+		</tr>
+	</table>
 </nav>
 <header>
 	<div class="header-bg"></div>
@@ -61,7 +76,7 @@
 	</div>
 </header>
 <main>
-	<section class="section-about cols">
+	<section id="section-about" class="section-about cols">
 		<div class="col-side">
 			<div class="image-box">
 				<div class="image-wrapper">
@@ -83,7 +98,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="section-divisions">
+	<section id="section-division" class="section-divisions">
 		<h2>Discover the World of Watches</h2>
 		<div class="card-box">
 			<div class="card">
@@ -135,6 +150,62 @@
 </main>
 
 <script>
+	let burgerMenu = document.querySelector('#hamburger-menu');
+    let closeMenu = document.querySelector('#close');
+    let menu = document.querySelector('nav')
+	let moreMenu = document.querySelectorAll('.moreMenu');
+    let moreButton = document.querySelector('.more-options');
+
+    function showMenu() {
+        menu.style.display = 'block';
+        setTimeout(() => {
+            menu.style.transform = 'translateY(0)';
+        }, 0)
+	}
+    function hideMenu() {
+        menu.style.transform = 'translateY(-100%)';
+        setTimeout(() => {
+            menu.style.display = 'none';
+            moreMenu.forEach((e) => {
+                if (e.classList.contains('show')) {
+                    e.classList.remove('show')
+                }
+            })
+        }, 300)
+    }
+
+    burgerMenu.addEventListener('click', showMenu)
+	closeMenu.addEventListener('click', hideMenu)
+	moreButton.addEventListener('click', () => {
+        moreMenu.forEach((e) => {
+            if (e.classList.contains('show')) {
+                e.classList.remove('show')
+            } else {
+                e.classList.add('show')
+            }
+        })
+	})
+
+    let lastScroll = 0;
+    let wasMenuShown = false;
+    window.onscroll = () => {
+        let currentScroll = document.documentElement.scrollTop;
+
+        if (currentScroll < lastScroll && !wasMenuShown) {
+            wasMenuShown = true;
+            showMenu()
+        } else if (currentScroll > lastScroll && wasMenuShown) {
+            hideMenu();
+            setTimeout(() => {
+                wasMenuShown = false
+            }, 500)
+        }
+
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    };
+
+
+
     let observer = new IntersectionObserver((entries, _) => {
         entries.forEach(entry => {
             if (entry.intersectionRatio >= 1) {
